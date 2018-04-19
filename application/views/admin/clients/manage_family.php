@@ -33,7 +33,7 @@
                 <div class="panel-body">
                     <div class="_buttons">
                         <?php if (has_permission('customers','','create')) { ?>
-                        <a href="<?php echo admin_url('clients/client'); ?>" class="btn btn-info mright5 test pull-left display-block">
+                        <a href="<?php echo admin_url('clientfamilies/client'); ?>" class="btn btn-info mright5 test pull-left display-block">
                             <?php echo _l('new_client'); ?></a>
                             <a href="<?php echo admin_url('clients/import'); ?>" class="btn btn-info pull-left display-block mright5 hidden-xs">
                                 <?php echo _l('import_customers'); ?></a>
