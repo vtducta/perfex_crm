@@ -19,7 +19,7 @@ $aColumns = array(
 $sIndexColumn = "userid";
 $sTable       = 'tblclients';
 $where   = array();
-array_push($where, 'AND tblclients.is_client=0');
+array_push($where, 'AND tblclients.is_client=1');
 // Add blank where all filter can be stored
 $filter  = array();
 
