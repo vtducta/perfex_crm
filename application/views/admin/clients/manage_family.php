@@ -35,10 +35,10 @@
                         <?php if (has_permission('customers','','create')) { ?>
                         <a href="<?php echo admin_url('clientfamilies/client'); ?>" class="btn btn-info mright5 test pull-left display-block">
                             <?php echo _l('new_client'); ?></a>
-                            <a href="<?php echo admin_url('clients/import'); ?>" class="btn btn-info pull-left display-block mright5 hidden-xs">
+                            <a href="<?php echo admin_url('clientfamilies/import'); ?>" class="btn btn-info pull-left display-block mright5 hidden-xs">
                                 <?php echo _l('import_customers'); ?></a>
                                 <?php } ?>
-                                <a href="<?php echo admin_url('clients/all_contacts'); ?>" class="btn btn-info pull-left display-block mright5">
+                                <a href="<?php echo admin_url('clientfamilies/all_contacts'); ?>" class="btn btn-info pull-left display-block mright5">
                                     <?php echo _l('customer_contacts'); ?></a>
                                     <div class="visible-xs">
                                         <div class="clearfix"></div>
@@ -162,7 +162,7 @@
                                     if(!has_permission('customers','','view')){
                                         $where_summary = ' AND userid IN (SELECT customer_id FROM tblcustomeradmins WHERE staff_id='.get_staff_user_id().')';
                                     }
-                                    $where_contacts_client = ' AND userid IN (SELECT id FROM tblclients WHERE is_client =1 )';
+                                    $where_contacts_client = ' AND userid IN (SELECT userid FROM tblclients WHERE is_client =1 )';
                                     ?>
                                     <hr class="hr-panel-heading" />
                                     <div class="row mbot15">
@@ -195,7 +195,7 @@
                                                 <?php if(count($contacts_logged_in_today)> 0){
                                                    $contactsTemplate = '';
                                                    foreach($contacts_logged_in_today as $contact){
-                                                    $url = admin_url('clients/client/'.$contact['userid'].'?contactid='.$contact['id']);
+                                                    $url = admin_url('clientfamilies/client/'.$contact['userid'].'?contactid='.$contact['id']);
                                                     $fullName = $contact['firstname'] . ' ' . $contact['lastname'];
                                                     $dateLoggedIn = _dt($contact['last_login']);
                                                     $html = "<a href='$url' target='_blank'>$fullName</a><br /><small>$dateLoggedIn</small><br />";
@@ -270,7 +270,7 @@
                         $_op = _l('options');
 
                         array_push($table_data, $_op);
-                        render_datatable($table_data,'clientfamilies');
+                        render_datatable($table_data,'clients');
                         ?>
                     </div>
                 </div>
@@ -288,7 +288,7 @@
 
     var headers_clients = $('.table-clients').find('th');
     var not_sortable_clients = (headers_clients.length - 1);
-    var tAPI = initDataTable('.table-clients', admin_url+'clients/table', [not_sortable_clients,0], [not_sortable_clients,0], CustomersServerParams,<?php echo do_action('customers_table_default_order',json_encode(array(2,'ASC'))); ?>);
+    var tAPI = initDataTable('.table-clients', admin_url+'clientfamilies/table', [not_sortable_clients,0], [not_sortable_clients,0], CustomersServerParams,<?php echo do_action('customers_table_default_order',json_encode(array(2,'ASC'))); ?>);
     $('input[name="exclude_inactive"]').on('change',function(){
         tAPI.ajax.reload();
     });
@@ -318,7 +318,7 @@
             data.ids = ids;
             $(event).addClass('disabled');
             setTimeout(function(){
-              $.post(admin_url + 'clients/bulk_action', data).done(function() {
+              $.post(admin_url + 'clientfamilies/bulk_action', data).done(function() {
                window.location.reload();
            });
           },50);

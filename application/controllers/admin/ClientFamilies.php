@@ -42,6 +42,7 @@ class ClientFamilies extends Admin_controller
         if (!has_permission('customers', '', 'view')) {
             $whereContactsLoggedIn = ' AND userid IN (SELECT customer_id FROM tblcustomeradmins WHERE staff_id='.get_staff_user_id().')';
         }
+        $whereContactsLoggedIn = $whereContactsLoggedIn . ' AND userid in (Select userid from tblclients where is_client=1)';
 
         $data['contacts_logged_in_today'] = $this->clients_model->get_contacts('', 'last_login LIKE "'.date('Y-m-d').'%"'.$whereContactsLoggedIn);
 
@@ -56,7 +57,7 @@ class ClientFamilies extends Admin_controller
             }
         }
 
-        $this->perfex_base->get_table_data('clients');
+        $this->perfex_base->get_table_data('clientfamilies');
     }
 
     public function all_contacts()
@@ -119,7 +120,7 @@ class ClientFamilies extends Admin_controller
         }
 
         if (!$this->input->get('group')) {
-            $group = 'profile';
+            $group = 'profile_families';
         } else {
             $group = $this->input->get('group');
         }
@@ -139,7 +140,7 @@ class ClientFamilies extends Admin_controller
             $data['contacts']         = $this->clients_model->get_contacts($id);
 
             // Fetch data based on groups
-            if ($group == 'profile') {
+            if ($group == 'profile_families') {
                 $data['customer_groups'] = $this->clients_model->get_customer_groups($id);
                 $data['customer_admins'] = $this->clients_model->get_admins($id);
             } elseif ($group == 'attachments') {

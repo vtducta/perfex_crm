@@ -162,7 +162,7 @@
                                     if(!has_permission('customers','','view')){
                                         $where_summary = ' AND userid IN (SELECT customer_id FROM tblcustomeradmins WHERE staff_id='.get_staff_user_id().')';
                                     }
-                                    $where_contacts_client = ' AND userid IN (SELECT id FROM tblclients WHERE is_client =0 )';
+                                    $where_contacts_client = ' AND userid IN (SELECT userid FROM tblclients WHERE is_client =0 )';
                                     ?>
                                     <hr class="hr-panel-heading" />
                                     <div class="row mbot15">

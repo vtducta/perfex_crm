@@ -42,7 +42,7 @@ class Clients extends Admin_controller
         if (!has_permission('customers', '', 'view')) {
             $whereContactsLoggedIn = ' AND userid IN (SELECT customer_id FROM tblcustomeradmins WHERE staff_id='.get_staff_user_id().')';
         }
-
+        $whereContactsLoggedIn = $whereContactsLoggedIn . ' AND userid in (Select userid from tblclients where is_client=0)';
         $data['contacts_logged_in_today'] = $this->clients_model->get_contacts('', 'last_login LIKE "'.date('Y-m-d').'%"'.$whereContactsLoggedIn);
 
         $this->load->view('admin/clients/manage', $data);
