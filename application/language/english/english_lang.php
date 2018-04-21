@@ -59,6 +59,9 @@ $lang['announcement_show_to_clients'] = 'Show to clients';
 $lang['announcement_show_my_name']    = 'Show my name';
 
 # Clients
+$lang['clientfamilies']                               = 'Clients';
+$lang['client_famimly']                                = 'Client';
+$lang['new_client_family']                            = 'New Client';
 $lang['clients']                               = 'Customers';
 $lang['client']                                = 'Customer';
 $lang['new_client']                            = 'New Customer';
@@ -1233,6 +1236,7 @@ $lang['acs_contract_types'] = 'Contract Types';
 $lang['invoice_item_long_description']     = 'Long Description';
 
 # Customers
+$lang['clientfamilies_summary']                 = 'Clients Summary';
 $lang['client_delete_invoices_warning']    = 'This client have invoices or estimates on the account. You cant delete this client. Change all invoices to another client in a future then delete.';
 $lang['clients_list_phone']                = 'Phone';
 $lang['client_expenses_tab']               = 'Expenses';
@@ -1494,6 +1498,7 @@ $lang['show_shipping_on_estimate']         = 'Show shipping details in estimate'
 $lang['is_invoiced_estimate_delete_error'] = 'This estimate is invoiced. You cant delete the estimate';
 
 # Customers & Invoices / Estimates
+$lang['client_family_profile_details'] = 'Client Details';
 $lang['ship_to']                  = 'Ship to';
 $lang['customer_profile_details'] = 'Customer Details';
 $lang['billing_shipping']         = 'Billing & Shipping';
@@ -1695,6 +1700,7 @@ $lang['add_checklist_item']       = 'Checklist Item';
 $lang['task_checklist_items']     = 'Checklist Items';
 
 # Import
+$lang['import_clientfamilies']            = 'Import Clients';
 $lang['default_pass_clients_import'] = 'Default password for all contacts';
 $lang['simulate_import']             = 'Simulate Import';
 $lang['import_upload_failed']        = 'Upload Failed';

@@ -6,7 +6,7 @@
       <ul class="nav nav-tabs profile-tabs row customer-profile-tabs" role="tablist">
          <li role="presentation" class="<?php if(!$this->input->get('tab')){echo 'active';}; ?>">
             <a href="#contact_info" aria-controls="contact_info" role="tab" data-toggle="tab">
-               <?php echo _l( 'customer_profile_details'); ?>
+               <?php echo _l( 'client_family_profile_details'); ?>
             </a>
          </li>
          <li role="presentation">

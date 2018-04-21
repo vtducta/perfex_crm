@@ -22,7 +22,7 @@ class ClientFamilies extends Admin_controller
         $this->load->model('contracts_model');
         $data['contract_types'] = $this->contracts_model->get_contract_types();
         $data['groups']         = $this->clients_model->get_groups();
-        $data['title']          = _l('clients');
+        $data['title']          = _l('clientfamilies');
 
         $this->load->model('proposals_model');
         $data['proposal_statuses'] = $this->proposals_model->get_statuses();
@@ -84,7 +84,7 @@ class ClientFamilies extends Admin_controller
                     access_denied('customers');
                 }
 
-                $data                 = $this->input->post();
+                $data = $this->input->post();
 
                 $save_and_add_contact = false;
                 if (isset($data['save_and_add_contact'])) {

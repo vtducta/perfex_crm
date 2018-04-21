@@ -34,9 +34,9 @@
                     <div class="_buttons">
                         <?php if (has_permission('customers','','create')) { ?>
                         <a href="<?php echo admin_url('clientfamilies/client'); ?>" class="btn btn-info mright5 test pull-left display-block">
-                            <?php echo _l('new_client'); ?></a>
+                            <?php echo _l('new_client_family'); ?></a>
                             <a href="<?php echo admin_url('clientfamilies/import'); ?>" class="btn btn-info pull-left display-block mright5 hidden-xs">
-                                <?php echo _l('import_customers'); ?></a>
+                                <?php echo _l('import_clientfamilies'); ?></a>
                                 <?php } ?>
                                 <a href="<?php echo admin_url('clientfamilies/all_contacts'); ?>" class="btn btn-info pull-left display-block mright5">
                                     <?php echo _l('customer_contacts'); ?></a>
@@ -167,7 +167,7 @@
                                     <hr class="hr-panel-heading" />
                                     <div class="row mbot15">
                                         <div class="col-md-12">
-                                            <h3 class="text-success no-margin"><?php echo _l('customers_summary'); ?></h3>
+                                            <h3 class="text-success no-margin"><?php echo _l('clientfamilies_summary'); ?></h3>
                                         </div>
                                         <div class="col-md-2 col-xs-6 border-right">
                                             <h3 class="bold"><?php echo total_rows('tblclients','is_client=1' . $where_summary); ?></h3>
